@@ -69,6 +69,10 @@ public class Main {
             if (gjett == 0) {
                 gjetta = false;
                 break;
+            } else if (gjett < tall) {
+                System.out.println("for lavt");
+            } else if (gjett > tall) {
+                System.out.println("for høyt");
             }
         } while (gjett != tall);
         if (gjetta) {
