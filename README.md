@@ -33,7 +33,4 @@ Bruk minst én for, én while, og én do-while.
 
 Koden skal være strukturert og kommentert.
 
-Bonus
-Legg til et valg som viser en multiplikasjonstabell (1–10).
-
-Bruk break og continue minst én gang på en fornuftig måte.
+Bruk break eller continue minst én gang på en fornuftig måte.
