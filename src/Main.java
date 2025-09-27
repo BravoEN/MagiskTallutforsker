@@ -26,6 +26,32 @@ public class Main {
     }
 
     private static void palindrom() {
+        // tar inn inputt
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Oppgi ett ord også sjekker programmet om det er ett palindrom");
+        String input = sc.nextLine();
+
+        // får slutten og starten av Stringen
+        int start = 0;
+        int slutt = input.length() - 1;
+
+
+        boolean palindrom = true;
+        while (start < slutt) {
+            // sjekker om hver char er det samme som char'en på motsatt side at stringen
+            if (input.charAt(start) != input.charAt(slutt)) {
+                palindrom = false;
+                break;
+            }
+            // increaser eller decreaser indexen for å møte på midten av stringen
+            start++;
+            slutt--;
+        }
+        if (palindrom) {
+            System.out.println(input + " er et palindrom");
+        } else {
+            System.out.println(input + " er ikke et palindrom");
+        }
 
     }
 
@@ -99,6 +125,7 @@ public class Main {
                 System.out.println("Ingen primtall under dette tallet");
             }
         } else {
+            // litt feilhåndtering
             if (tall == 1 || tall == 0) {
                 System.out.println("1 eller 0 kan ikke være primtall");
             } else if (tall % 2 == 0) {
