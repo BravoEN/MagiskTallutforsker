@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -56,9 +57,39 @@ public class Main {
     }
 
     private static void tallgjetting() {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+        System.out.println("Skriv inn ett tall mellom 1-100, skriv 0 for å avslutte programmet");
+        // henter random tall fra og med 1 til 101
+        int tall = rand.nextInt(1,101);
+        int gjett;
+        boolean gjetta = true;
+        do {
+            gjett = sc.nextInt();
+            if (gjett == 0) {
+                gjetta = false;
+                break;
+            }
+        } while (gjett != tall);
+        if (gjetta) {
+            System.out.println("Du gjetta tallet " + tall + "! Gratulerer");
+        } else {
+            System.out.println("Så synd du ga opp, tallet var " + tall + ". Lykke til neste gang!");
+        }
+
+
     }
 
     private static void summenAvTall() {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        System.out.println("Skriv inn tall og programmet vil summere de for deg, skriv inn 0 når du er ferdig");
+        int tall = sc.nextInt();
+        while (tall != 0) {
+            sum += tall;
+            tall = sc.nextInt();
+        }
+        System.out.println("Summen av dine tall er " + sum);
     }
 
     private static void primtall() {
