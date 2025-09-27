@@ -26,6 +26,7 @@ public class Main {
     }
 
     private static void palindrom() {
+
     }
 
     private static void tallgjetting() {
@@ -44,59 +45,69 @@ public class Main {
         // Sjekker om tallet er høyere enn en og at tallet ikke kan restdivideres på 2
         if (tall > 1 && tall % 2 != 0) {
             // får kradratroten
-            double kvadratrot = Math.sqrt(tall);
+            double tallkvadratrot = Math.sqrt(tall);
 
             // definerer at programmet forventer at tallet er et primtall
-            boolean primtall = true;
+            boolean tallprimtall = true;
 
             // sjekker om tallet faktisk er ett primtall med å restdividere tallet på alle tall som er mindre en kvadratroten av tallet
-            for (int i = 3; i <= kvadratrot; i++) {
+            for (int i = 3; i <= tallkvadratrot; i++) {
                 if (tall % i == 0) {
                     // forteller at tallet ikke er primtall og slutter løkka da vi har fårr svaret vi vil ha
-                    primtall = false;
+                    tallprimtall = false;
                     break;
                 }
             }
             // printer om det er ett primtall eller ikke
-            if (primtall) {
+            if (tallprimtall) {
                 System.out.println("Tallet ditt er et primtall");
             } else {
                 System.out.println("Tallet ditt er ikke et primtall");
             }
-        }
-        // boolean for å få riktig output
-        boolean harPrintet = false;
 
-        // løkke for å sjekke på alle tall under inputtallet, for å sjekke om de er et primtall
-        // alle tall fra og med 3 til alle tall under inputtall
-        for (int i = 3; i <= tall-1; i++) {
-            // sjekker om i kan restdivideres på 2
-            if (i % 2 != 0) {
-                // får kvadratroten til i
-                double kvadratrot = Math.sqrt(i);
+            // boolean for å få riktig output
+            boolean harPrintet = false;
 
-                // løkke for å sjekke om i kan restivideres på noen tall lavere enn kvadratroten dens
-                // definerer at tallet er allerede et primtall, og løkka sjekker om dette faktisk er sant
-                boolean primtall = true;
-                for (int j = 3; j <= kvadratrot; j++) {
-                    // hvis i kan restdivideres på noen tall lavere enn kvadratroten dens og høyere eller lik 3 så er det ikke ett primtall
-                    if (i % j == 0) {
-                        // definerer at tallet ikke er ett primtall og slutter løkka
-                        primtall = false;
-                        break;
+            // løkke for å sjekke på alle tall under inputtallet, for å sjekke om de er et primtall
+            // alle tall fra og med 3 til alle tall under inputtall
+            for (int i = 3; i <= tall-1; i++) {
+                // sjekker om i kan restdivideres på 2
+                if (i % 2 != 0) {
+                    // får kvadratroten til i
+                    double ikvadratrot = Math.sqrt(i);
+
+                    // løkke for å sjekke om i kan restivideres på noen tall lavere enn kvadratroten dens
+                    // definerer at tallet er allerede et primtall, og løkka sjekker om dette faktisk er sant
+                    boolean iprimtall = true;
+                    for (int j = 3; j <= ikvadratrot; j++) {
+                        // hvis i kan restdivideres på noen tall lavere enn kvadratroten dens og høyere eller lik 3 så er det ikke ett primtall
+                        if (i % j == 0) {
+                            // definerer at tallet ikke er ett primtall og slutter løkka
+                            iprimtall = false;
+                            break;
+                        }
+                    }
+                    // printer alle primtall under input tallet
+                    if (iprimtall) {
+                        harPrintet = true;
+                        System.out.println(i);
                     }
                 }
-                // printer alle primtall under input tallet
-                if (primtall) {
-                    harPrintet = true;
-                    System.out.println(i);
-                }
+            }
+            // hvis det ikke er noen tall under inputtallet så kommer denne feilmeldinga
+            if (!harPrintet) {
+                System.out.println("Ingen primtall under dette tallet");
+            }
+        } else {
+            if (tall == 1 || tall == 0) {
+                System.out.println("1 eller 0 kan ikke være primtall");
+            } else if (tall % 2 == 0) {
+                System.out.println("Tall som kan deles på 2 kan ikke være primtall");
+            } else if (tall < 0) {
+                System.out.println("Programmet støtter ikke negative verdier");
+            } else {
+                System.out.println("Udyldig verdi");
             }
         }
-        // hvis det ikke er noen tall under inputtallet så kommer denne feilmeldinga
-        if (!harPrintet) {
-            System.out.println("Ingen primtall under dette tallet");
-        }
-
     }
 }
